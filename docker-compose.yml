@@ -1,7 +1,20 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      target: server
+    container_name: app
     ports:
       - "8000:80"
     volumes:
       - .:/var/www/html
+
+  cypress:
+    build:
+      context: .
+      target: cypress
+    container_name: tests
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - app
