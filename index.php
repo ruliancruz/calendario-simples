@@ -19,50 +19,56 @@
       return "Boa noite!";
     }
 
-    function addLine($week) {
+    function addLine($week, $currentDay) {
       echo "<tr class='border'>";
 
       for($counter = 0; $counter < 7; $counter++) {
-        echo "<td class='border'>" . ($week[$counter] ?? '') . "</td>";
+        $day = $week[$counter] ?? '';
+        $class = $day == $currentDay ? 'bold' : '';
+        echo "<td class='border $class'>$day</td>";
       }
 
       echo "</tr>";
     }
 
-    function fillCalendar() {
+    function fillCalendar($currentDay) {
       $week = [];
 
       for($day = 1; $day <= 31; $day++) {
         $week[] = $day;
 
         if(count($week) == 7) {
-          addLine($week);
+          addLine($week, $currentDay);
           $week = [];
         }
       }
 
-      if(!empty($week)) { addLine($week); }
+      if(!empty($week)) { addLine($week, $currentDay); }
     }
   ?>
 
-  <h1><?= htmlspecialchars(getGreeting($date)); ?></h1>
-  <h2>Estamos em <?= $date->format('Y') ?></h2>
-  <p>Agora são <?= $date->format('H') ?> horas e <?= $date->format('i') ?> minutos.</p>
-  <table class="border">
-    <thead>
-      <tr>
-        <th>Dom</th>
-        <th>Seg</th>
-        <th>Ter</th>
-        <th>Qua</th>
-        <th>Qui</th>
-        <th>Sex</th>
-        <th>Sab</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php fillCalendar() ?>
-    </tbody>
-  </table>
+  <header>
+    <h1><?= htmlspecialchars(getGreeting($date)); ?></h1>
+    <h2>Estamos em <?= $date->format('Y') ?></h2>
+    <p>Agora são <?= $date->format('H') ?> horas e <?= $date->format('i') ?> minutos.</p>
+  </header>
+  <main>
+    <table class="border">
+      <thead>
+        <tr>
+          <th>Dom</th>
+          <th>Seg</th>
+          <th>Ter</th>
+          <th>Qua</th>
+          <th>Qui</th>
+          <th>Sex</th>
+          <th>Sab</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php fillCalendar($date->format('j')) ?>
+      </tbody>
+    </table>
+  </main>
 </body>
 </html>
