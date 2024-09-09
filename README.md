@@ -26,9 +26,9 @@
 
 :heavy_check_mark: Show a page with a calendar of the current month
 
-:heavy_check_mark: Show current year and time
+:heavy_check_mark: Show the current year and time
 
-:heavy_check_mark: Show greeting message
+:heavy_check_mark: Show a greeting message
 
 ### Application Image
 
