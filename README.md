@@ -52,7 +52,7 @@ After configuring Docker, clone this repository:
 git clone https://github.com/ruliancruz/calendario-simples.git
 ```
 
-After that, all you need to do to run the application is starting Docker containers from application:
+After that, all you need to do to run the application is starting Docker containers:
 
 ```
 docker compose up --build
