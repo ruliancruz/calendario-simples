@@ -32,8 +32,7 @@
 
 ### Application Image
 
-![image](https://github.com/user-attachments/assets/f6e07fb0-68ff-4d78-b04a-c52e70a377dc)
-
+![image](https://github.com/user-attachments/assets/ceed947c-5ffd-40ed-876e-eb3c8340835a)
 
 ## Dependencies
 
