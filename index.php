@@ -6,6 +6,17 @@
   <title>Calendário Simples</title>
 </head>
 <body>
-  <p>Hello World</p>
+  <?php
+    function getGreeting() {
+      $date = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
+      $hour = $date->format('H');
+
+      if($hour >= 4 && $hour < 12) { return "Bom dia!"; }
+      if($hour >= 12 && $hour < 18) { return "Boa tarde!"; }
+
+      return "Boa noite!";
+    }
+  ?>
+  <h1><?= htmlspecialchars(getGreeting()); ?></h1>
 </body>
 </html>

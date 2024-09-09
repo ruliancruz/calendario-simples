@@ -5,6 +5,6 @@ module.exports = defineConfig({
     baseUrl: 'http://app:80',
     supportFile: false,
     setupNodeEvents(on, config) {},
-    defaultCommandTimeout: 5000
+    defaultCommandTimeout: 3000
   },
 });
