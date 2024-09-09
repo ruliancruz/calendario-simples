@@ -22,10 +22,21 @@
     function addLine($week, $currentDay) {
       echo "<tr class='border'>";
 
-      for($counter = 0; $counter < 7; $counter++) {
-        $day = $week[$counter] ?? '';
-        $class = $day == $currentDay ? 'bold' : '';
-        echo "<td class='border $class'>$day</td>";
+      foreach ($week as $index => $day) {
+        $class = '';
+        $dayNumber = $day ?? '';
+
+        if ($index == 0) {
+          $class = 'red';
+        } elseif ($index == 6) {
+          $class = 'bold';
+        }
+        
+        if ($dayNumber == $currentDay) {
+          $class .= ($class ? ' ' : '') . 'bold';
+        }
+
+        echo "<td class='border $class'>$dayNumber</td>";
       }
 
       echo "</tr>";
@@ -62,7 +73,7 @@
           <th>Qua</th>
           <th>Qui</th>
           <th>Sex</th>
-          <th>Sab</th>
+          <th>Sáb</th>
         </tr>
       </thead>
       <tbody>
